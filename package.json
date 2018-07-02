@@ -1,0 +1,25 @@
+{
+  "name": "realworld-cypress-e2e-test",
+  "version": "0.0.1",
+  "description": "Cypress e2e tests for realworld app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivensio/realworld-cypress-e2e-testing.git"
+  },
+  "keywords": [
+    "cypress",
+    "realworld",
+    "e2e-testing",
+    "conduit"
+  ],
+  "author": "Vivek Patel (vivensio)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vivensio/realworld-cypress-e2e-testing/issues"
+  },
+  "homepage": "https://github.com/vivensio/realworld-cypress-e2e-testing#readme"
+}
