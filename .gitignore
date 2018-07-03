@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+
+# cypress auto-generated examples
+/cypress/integration/examples
+/cypress/fixtures/example.json
