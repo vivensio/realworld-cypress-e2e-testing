@@ -19,4 +19,9 @@ context('Unauthenticated App', () => {
     cy.contains('Sign in').click();
     cy.url().should('contain', 'login');
   });
+
+  it('should navigate to Sign up page', () => {
+    cy.contains('Sign up').click();
+    cy.url().should('contain', 'register');
+  });
 });
