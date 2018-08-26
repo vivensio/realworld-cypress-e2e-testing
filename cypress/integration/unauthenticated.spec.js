@@ -14,4 +14,14 @@ context('Unauthenticated App', () => {
       .should('contain', 'Sign in')
       .should('contain', 'Sign up');
   });
+
+  it('should navigate to Sign in page', () => {
+    cy.contains('Sign in').click();
+    cy.url().should('contain', 'login');
+  });
+
+  it('should navigate to Sign up page', () => {
+    cy.contains('Sign up').click();
+    cy.url().should('contain', 'register');
+  });
 });

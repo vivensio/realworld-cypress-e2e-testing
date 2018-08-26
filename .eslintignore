@@ -1,0 +1,3 @@
+/cypress/integration/examples
+/cypress/fixtures/example.json
+/cypress/plugins/index.js

@@ -4,7 +4,14 @@
   "description": "Cypress e2e tests for realworld app",
   "main": "index.js",
   "scripts": {
-    "e2e:open": "cypress open"
+    "e2e:open": "cypress open",
+    "lint": "eslint --ext .js cypress",
+    "lint:watch": "esw -w --ext .js cypress"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "repository": {
     "type": "git",
@@ -24,6 +31,12 @@
   "homepage": "https://github.com/vivensio/realworld-cypress-e2e-testing#readme",
   "dependencies": {},
   "devDependencies": {
-    "cypress": "^3.0.2"
+    "cypress": "^3.0.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-cypress": "^2.0.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-watch": "^4.0.2",
+    "husky": "^1.0.0-rc.13"
   }
 }
