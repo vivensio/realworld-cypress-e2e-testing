@@ -8,6 +8,11 @@
     "lint": "eslint --ext .js cypress",
     "lint:watch": "esw -w --ext .js cypress"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vivensio/realworld-cypress-e2e-testing.git"
@@ -31,6 +36,7 @@
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-cypress": "^2.0.1",
     "eslint-plugin-import": "^2.13.0",
-    "eslint-watch": "^4.0.2"
+    "eslint-watch": "^4.0.2",
+    "husky": "^1.0.0-rc.13"
   }
 }
