@@ -1,7 +1,14 @@
-context('Log in', () => {
-  it('logs user in', () => {
-    cy.visit('/');
-    cy.contains('Sign in').click();
+context('Login Page', () => {
+  beforeEach(() => {
+    cy.visit('/#/login');
+  });
+
+  it('has a link to the registration page', () => {
+    cy.contains('Need an account?').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/#/register`);
+  });
+
+  it('logs user in successfully', () => {
     cy.get('[data-cy=input-email]').type('test123@test.com');
     cy.get('[data-cy=input-password]').type('test123');
     cy.get('[data-cy=form-login]').submit();
