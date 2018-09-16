@@ -9,7 +9,7 @@ import {
 describe('New Article Page', () => {
   beforeEach(() => {
     cy.login('test123@test.com', 'test123');
-    cy.visit('/#/editor');
+    cy.visit('/editor');
   });
 
   context('Tags', () => {

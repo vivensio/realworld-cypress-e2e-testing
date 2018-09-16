@@ -7,7 +7,7 @@ import {
 describe('Article Page', () => {
   beforeEach(() => {
     cy.login('test123@test.com', 'test123');
-    cy.visit('/#/@test123');
+    cy.visit('/@test123');
 
     cy.get('[data-cy="article-title"]').click();
   });
