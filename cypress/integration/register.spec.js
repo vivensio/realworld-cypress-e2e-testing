@@ -1,11 +1,11 @@
 describe('Registration Page', () => {
   beforeEach(() => {
-    cy.visit('/#/register');
+    cy.visit('/register');
   });
 
   it('has a link to sign in page', () => {
     cy.contains('Have an account?').click();
-    cy.url().should('eq', `${Cypress.config().baseUrl}/#/login`);
+    cy.url().should('eq', `${Cypress.config().baseUrl}/login`);
   });
 
   context('validates the registration form', () => {

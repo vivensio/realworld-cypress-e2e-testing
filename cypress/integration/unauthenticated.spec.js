@@ -17,11 +17,11 @@ context('Unauthenticated App', () => {
 
   it('should navigate to Sign in page', () => {
     cy.contains('Sign in').click();
-    cy.url().should('contain', 'login');
+    cy.url().should('eq', `${Cypress.config().baseUrl}/login`);
   });
 
   it('should navigate to Sign up page', () => {
     cy.contains('Sign up').click();
-    cy.url().should('contain', 'register');
+    cy.url().should('eq', `${Cypress.config().baseUrl}/register`);
   });
 });
