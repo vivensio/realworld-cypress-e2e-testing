@@ -4,7 +4,7 @@ import {
   ARTICLE_BODY,
   ARTICLE_TAG,
   ARTICLE_TAGS,
-} from './constants';
+} from '../../support/constants';
 
 describe('New Article Page', () => {
   beforeEach(() => {
