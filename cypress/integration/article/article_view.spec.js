@@ -2,13 +2,15 @@ import {
   ARTICLE_TITLE,
   ARTICLE_BODY,
   ARTICLE_TAG,
-} from './constants';
+} from '../../support/constants';
+import { deleteAllArticles, postArticle } from '../../support/utils';
 
 describe('Article Page', () => {
   beforeEach(() => {
-    cy.login('test123@test.com', 'test123');
+    cy.login('test123@test.com', 'test123')
+      .then(deleteAllArticles)
+      .then(postArticle);
     cy.visit('/@test123');
-
     cy.get('[data-cy="article-title"]').click();
   });
 
