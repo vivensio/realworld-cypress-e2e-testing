@@ -36,15 +36,14 @@ describe('New Article Page', () => {
   });
 
   context('New Article', () => {
-    it.skip('posts a new article', () => {
+    it('posts a new article', () => {
       cy.get('[data-cy="article-title"]').type(ARTICLE_TITLE);
       cy.get('[data-cy="article-description"]').type(ARTICLE_DESCRIPTION);
       cy.get('[data-cy="article-body"]').type(ARTICLE_BODY);
       cy.get('[data-cy="article-tags-input"]').type(`${ARTICLE_TAG}{enter}`);
 
       cy.get('[data-cy="article-form"]').submit();
-
-      cy.url().should('contain', ARTICLE_TITLE);
+      cy.get('[data-cy="article-title"]').should('have.text', ARTICLE_TITLE);
     });
   });
 });
