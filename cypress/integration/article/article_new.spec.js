@@ -5,6 +5,7 @@ import {
   ARTICLE_TAG,
   ARTICLE_TAGS,
 } from '../../support/constants';
+import { deleteAllArticles } from '../../support/utils';
 
 describe('New Article Page', () => {
   beforeEach(() => {
@@ -37,6 +38,7 @@ describe('New Article Page', () => {
 
   context('New Article', () => {
     it('posts a new article', () => {
+      deleteAllArticles();
       cy.get('[data-cy="article-title"]').type(ARTICLE_TITLE);
       cy.get('[data-cy="article-description"]').type(ARTICLE_DESCRIPTION);
       cy.get('[data-cy="article-body"]').type(ARTICLE_BODY);
