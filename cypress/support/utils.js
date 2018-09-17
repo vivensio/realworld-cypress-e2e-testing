@@ -15,7 +15,7 @@ export const getRequestParams = (method, route) => ({
 
 export const getAllArticles = () => {
   const params = getRequestParams('GET', '/articles?offset=0&limit=100');
-  return cy.request({ ...params });
+  return cy.request({ ...params }).its('body.articles');
 };
 
 export const deleteArticle = (id) => {
@@ -25,10 +25,8 @@ export const deleteArticle = (id) => {
 
 export const deleteAllArticles = () => (
   getAllArticles()
-    .then((response) => {
-      response.body.articles.forEach((article) => {
-        deleteArticle(article.slug);
-      });
+    .then((articles) => {
+      articles.forEach(article => deleteArticle(article.slug));
     })
 );
 
