@@ -3,7 +3,7 @@ import {
   ARTICLE_BODY,
   ARTICLE_TAG,
 } from '../../support/constants';
-import { deleteAllArticles, postArticle } from '../../support/utils';
+import { deleteAllArticles, getAllArticles, postArticle } from '../../support/utils';
 
 describe('Article Page', () => {
   beforeEach(() => {
@@ -19,6 +19,14 @@ describe('Article Page', () => {
       cy.get('[data-cy="article-title"]').should('have.text', ARTICLE_TITLE);
       cy.get('[data-cy="article-body"]').should('contain', ARTICLE_BODY);
       cy.get('[data-cy="article-tag"]').should('contain', ARTICLE_TAG);
+    });
+  });
+
+  context('delete article', () => {
+    it('deletes article successfully', () => {
+      cy.get('[data-cy="article-delete-btn"]').eq(0).click();
+      getAllArticles()
+        .should('have.length', 0);
     });
   });
 });
