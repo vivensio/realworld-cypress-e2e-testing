@@ -1,4 +1,9 @@
+import { resetDatabase } from '../support/utils';
+
+const { batman } = Cypress.env().users;
+
 context('Login Page', () => {
+  before(resetDatabase);
   beforeEach(() => {
     cy.visit('/login');
   });
@@ -9,8 +14,8 @@ context('Login Page', () => {
   });
 
   it('logs user in successfully', () => {
-    cy.get('[data-cy=input-email]').type('test123@test.com');
-    cy.get('[data-cy=input-password]').type('test123');
+    cy.get('[data-cy=input-email]').type(batman.email);
+    cy.get('[data-cy=input-password]').type(batman.password);
     cy.get('[data-cy=form-login]').submit();
 
     // Check if we're redirected to homepage
@@ -18,6 +23,6 @@ context('Login Page', () => {
 
     // Make sure that we're really logged in by checking existence of elements in Navbar
     cy.get('.nav-item').should('contain', 'Settings');
-    cy.get('.nav-item').should('contain', 'test123');
+    cy.get('.nav-item').should('contain', batman.username);
   });
 });
