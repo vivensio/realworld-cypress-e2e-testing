@@ -45,3 +45,19 @@ export const postArticle = () => {
     },
   });
 };
+
+export const createNewUser = (user) => {
+  cy.request({
+    method: 'POST',
+    url: `${Cypress.config().apiBaseUrl}/users`,
+    body: {
+      user,
+    },
+  });
+};
+
+export const resetDatabase = () => {
+  cy.exec('yarn run reset:database');
+  createNewUser(Cypress.env().users.batman);
+  createNewUser(Cypress.env().users.superman);
+};
