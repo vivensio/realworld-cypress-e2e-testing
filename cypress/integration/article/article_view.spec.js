@@ -13,11 +13,11 @@ import {
 } from '../../support/utils';
 
 const setup = () => {
-  const { email, password, username } = Cypress.env().users.batman;
-  cy.login(email, password)
+  const { batman } = Cypress.env().users;
+  cy.login(batman)
     .then(deleteAllArticles)
     .then(postArticle);
-  cy.visit(`/@${username}`);
+  cy.visit(`/@${batman.username}`);
   cy.get('[data-cy="article-title"]').click();
 };
 
@@ -46,8 +46,7 @@ describe('Article Page - as another user', () => {
   before(() => {
     setup();
     cy.logout();
-    const { email, password } = Cypress.env().users.superman;
-    cy.login(email, password);
+    cy.login(Cypress.env().users.superman);
     cy.reload();
   });
 
@@ -74,7 +73,7 @@ describe('Article Page - as another user', () => {
   });
 
   after(() => {
-    cy.login('bat@man.com', 'batman123')
+    cy.login(Cypress.env().users.batman)
       .then(deleteAllArticles);
   });
 });

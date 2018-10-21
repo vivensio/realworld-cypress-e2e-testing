@@ -10,8 +10,7 @@ import { deleteAllArticles, resetDatabase } from '../../support/utils';
 describe('New Article Page', () => {
   before(resetDatabase);
   beforeEach(() => {
-    const { email, password } = Cypress.env().users.batman;
-    cy.login(email, password);
+    cy.login(Cypress.env().users.batman);
     cy.visit('/editor');
   });
 
