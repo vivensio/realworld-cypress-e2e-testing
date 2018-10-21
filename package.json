@@ -6,7 +6,8 @@
   "scripts": {
     "e2e:open": "cypress open",
     "lint": "eslint --ext .js cypress",
-    "lint:watch": "esw -w --ext .js cypress"
+    "lint:watch": "esw -w --ext .js cypress",
+    "reset:database": "node reset-db.js"
   },
   "husky": {
     "hooks": {
@@ -29,7 +30,9 @@
     "url": "https://github.com/vivensio/realworld-cypress-e2e-testing/issues"
   },
   "homepage": "https://github.com/vivensio/realworld-cypress-e2e-testing#readme",
-  "dependencies": {},
+  "dependencies": {
+    "mongoose": "^5.3.4"
+  },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^3.0.0",
     "cypress": "^3.0.2",
