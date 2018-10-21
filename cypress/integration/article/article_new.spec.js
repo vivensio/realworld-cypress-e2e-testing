@@ -5,11 +5,12 @@ import {
   ARTICLE_TAG,
   ARTICLE_TAGS,
 } from '../../support/constants';
-import { deleteAllArticles } from '../../support/utils';
+import { deleteAllArticles, resetDatabase } from '../../support/utils';
 
 describe('New Article Page', () => {
+  before(resetDatabase);
   beforeEach(() => {
-    cy.login('test123@test.com', 'test123');
+    cy.login(Cypress.env().users.batman);
     cy.visit('/editor');
   });
 

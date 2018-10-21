@@ -4,17 +4,25 @@ import {
   ARTICLE_TAG,
   COMMENT,
 } from '../../support/constants';
-import { deleteAllArticles, getAllArticles, postArticle } from '../../support/utils';
+
+import {
+  deleteAllArticles,
+  getAllArticles,
+  postArticle,
+  resetDatabase,
+} from '../../support/utils';
 
 const setup = () => {
-  cy.login('test123@test.com', 'test123')
+  const { batman } = Cypress.env().users;
+  cy.login(batman)
     .then(deleteAllArticles)
     .then(postArticle);
-  cy.visit('/@test123');
+  cy.visit(`/@${batman.username}`);
   cy.get('[data-cy="article-title"]').click();
 };
 
 describe('Article Page', () => {
+  before(resetDatabase);
   beforeEach(setup);
 
   context('view article', () => {
@@ -38,7 +46,7 @@ describe('Article Page - as another user', () => {
   before(() => {
     setup();
     cy.logout();
-    cy.login('test1234@test.com', 'test1234');
+    cy.login(Cypress.env().users.superman);
     cy.reload();
   });
 
@@ -49,7 +57,7 @@ describe('Article Page - as another user', () => {
       cy.get('[data-cy="comment-body"]').should('contain', COMMENT);
     });
 
-    it.only('can favorite/unfavorite an article', () => {
+    it('can favorite/unfavorite an article', () => {
       cy.get('[data-cy="fav-unfav-btn"]').eq(0).should('contain', 'Favorite Article');
 
       cy.get('[data-cy="fav-unfav-btn"]').eq(0).click();
@@ -65,7 +73,7 @@ describe('Article Page - as another user', () => {
   });
 
   after(() => {
-    cy.login('test123@test.com', 'test123')
+    cy.login(Cypress.env().users.batman)
       .then(deleteAllArticles);
   });
 });

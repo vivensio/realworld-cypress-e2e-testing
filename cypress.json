@@ -1,4 +1,18 @@
 {
   "baseUrl": "http://localhost:8081/#/",
-  "apiBaseUrl": "http://localhost:3000/api"
+  "apiBaseUrl": "http://localhost:3000/api",
+  "env": {
+    "users": {
+      "batman": {
+        "username": "batman",
+        "password": "batman123",
+        "email": "bat@man.com"
+      },
+      "superman": {
+        "username": "superman",
+        "password": "superman123",
+        "email": "super@man.com"
+      }
+    }
+  }
 }
