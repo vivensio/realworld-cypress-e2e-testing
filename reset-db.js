@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/conduit');
+mongoose.connect('mongodb://localhost/conduit-test');
 
 const dropCollection = async (collection) =>
  await mongoose.connection.db.dropCollection(collection.collectionName);

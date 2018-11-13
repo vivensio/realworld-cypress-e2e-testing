@@ -1,6 +1,6 @@
 {
   "baseUrl": "http://localhost:8081/#/",
-  "apiBaseUrl": "http://localhost:3000/api",
+  "apiBaseUrl": "http://localhost:3001/api",
   "env": {
     "users": {
       "batman": {

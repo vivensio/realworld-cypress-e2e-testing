@@ -1,7 +1,7 @@
 Cypress.Commands.add('login', ({ email, password }) => (
   cy.request({
     method: 'POST',
-    url: 'http://localhost:3000/api/users/login',
+    url: `${Cypress.config().apiBaseUrl}/users/login`,
     body: {
       user: {
         email,
